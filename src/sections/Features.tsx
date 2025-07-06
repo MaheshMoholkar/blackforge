@@ -1,5 +1,3 @@
-import { twMerge } from "tailwind-merge";
-import TextButton from "../components/text-button";
 import Card from "../components/card";
 
 const cardData = [

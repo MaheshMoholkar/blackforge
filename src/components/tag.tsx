@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from "react";
-import { getPostColorFromCategory } from "../utils/postUtils";
 import { twMerge } from "tailwind-merge";
 
 function Tag(props: ComponentPropsWithoutRef<"div"> & { color: string }) {
