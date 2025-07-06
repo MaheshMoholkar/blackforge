@@ -30,7 +30,7 @@ const testimonials = [
   {
     quote: "The attention to detail and customer support is outstanding.",
     author: "Molly Vaughan",
-    title: "UX Designer",
+    title: "Product Designer",
     avatar: "/assets/images/avatar-molly-vaughan.jpg",
   },
   {
