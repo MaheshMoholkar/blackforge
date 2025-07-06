@@ -1,6 +1,6 @@
 import Button from "../components/button";
 
-export const HeaderSection = () => {
+const HeaderSection = () => {
   return (
     <header className="sticky top-0 bg-zinc-900/50 backdrop-blur-lg z-40">
       <div className="container">
@@ -24,3 +24,5 @@ export const HeaderSection = () => {
     </header>
   );
 };
+
+export default HeaderSection;
