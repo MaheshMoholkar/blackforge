@@ -37,7 +37,7 @@ function FeaturesGrid() {
               </div>
             </div>
             <div className="hidden md:block">
-              <div className="relative inline-flex">
+              <div className="relative inline-flex lg:right-[-50px]">
                 <img
                   src="/assets/images/torus-knot.png"
                   alt="Torus Knot"
@@ -53,7 +53,7 @@ function FeaturesGrid() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative hidden md:block">
-              <div className="absolute right-0 z-0">
+              <div className="absolute right-0 z-0 lg:right-[50px]">
                 <img
                   src="/assets/images/cone.png"
                   alt="Cone"
