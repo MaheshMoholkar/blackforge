@@ -1,0 +1,100 @@
+import Button from "../components/button";
+import TextButton from "../components/text-button";
+
+const listItems = [
+  "Experience unparalled security and scalability",
+  "Fully benefit from scalable network effects",
+  "Unlock the potential of decentralized networks",
+];
+
+function FeaturesGrid() {
+  return (
+    <section className="py-24 md:py-52 overflow-x-clip">
+      <div className="container">
+        <div className="flex flex-col gap-56 md:gap-48 lg:gap-80">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="col-span-2">
+              <h2 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl">
+                Empowering the Future of Blockchain.
+              </h2>
+              <p className="text-xl lg:text-2xl text-zinc-400 mt-8">
+                Blockforge provides robust and secure infrastructure to support
+                the next generation of decentralized applications.
+              </p>
+              <ul className="mt-12 flex flex-col gap-8">
+                {listItems.map((item, index) => (
+                  <li key={index} className="flex items-center gap-4">
+                    <div className="inline-flex flex-shrink-0 justify-center items-center size-8 outline outline-4 -outline-offset-4 outline-fuchsia-500/10 rounded-full">
+                      <div className="size-1.5 bg-fuchsia-500 rounded-full"></div>
+                    </div>
+                    <div className="text-xl font-bold">{item}</div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-12 flex gap-8">
+                <Button>Get Started</Button>
+                <TextButton color="fuchsia">Learn More</TextButton>
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <div className="relative inline-flex">
+                <img
+                  src="/assets/images/torus-knot.png"
+                  alt="Torus Knot"
+                  className="size-96 max-w-none z-0"
+                />
+                <img
+                  src="/assets/images/hemisphere.png"
+                  alt="Hemisphere"
+                  className="absolute size-96 top-3/4 -z-10 scale-x-[-1]"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="relative hidden md:block">
+              <div className="absolute right-0 z-0">
+                <img
+                  src="/assets/images/cone.png"
+                  alt="Cone"
+                  className="size-96 max-w-none rotate-12"
+                />
+                <img
+                  src="/assets/images/hemisphere.png"
+                  alt="Hemisphere"
+                  className="absolute size-96 top-3/4 -z-10"
+                />
+              </div>
+            </div>
+
+            <div className="col-span-2">
+              <h2 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl">
+                Blockforge leads the way.
+              </h2>
+              <div className="flex flex-col gap-8 text-xl lg:text-2xl text-zinc-400 mt-6">
+                <p>
+                  Blockforge is dedicated to supporting the evolution of Web 3
+                  applications by delivering the necessary infrastructure and
+                  security
+                </p>
+                <p>
+                  Blockforge is dedicated to supporting the evolution of Web 3.
+                  As a decentralized blockchain scaling platform, Blockforge
+                  enables developers to create scalable, user-friendly dApps
+                  with low transaction costs, all while ensuring robust
+                  security.
+                </p>
+              </div>
+              <div className="mt-12 flex gap-8">
+                <Button>Get Started</Button>
+                <TextButton color="fuchsia">Learn More</TextButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default FeaturesGrid;
