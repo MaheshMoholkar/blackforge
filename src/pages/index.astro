@@ -2,12 +2,8 @@
 import DefaultLayout from "../layouts/Default.astro";
 import FeatureSection from "../sections/Features";
 import FeaturesGrid from "../sections/FeaturesGrid";
-import HeaderSection from "../sections/Header";
 import HeroSection from "../sections/Hero";
 import LatestPosts from "../sections/LatestPosts";
-import TestimonialsSection from "../sections/Testimonials";
-import CallToAction from "../sections/CallToAction";
-import Footer from "../sections/Footer";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog");
@@ -21,12 +17,8 @@ const latestPosts = posts
 ---
 
 <DefaultLayout>
-  <HeaderSection client:load />
   <HeroSection client:load />
   <FeatureSection client:load />
   <FeaturesGrid client:load />
   <LatestPosts latestPosts={latestPosts} client:load />
-  <TestimonialsSection client:load />
-  <CallToAction client:load />
-  <Footer />
 </DefaultLayout>
