@@ -36,21 +36,23 @@ function LatestPosts({
             {latestPosts
               .filter((_, index) => index % 2 === 0)
               .map((post, index) => (
-                <Card
-                  key={index}
-                  color={getPostColorFromCategory(post.data.category)}
-                  buttonText="Read More"
-                >
-                  <Tag color={getPostColorFromCategory(post.data.category)}>
-                    {post.data.category}
-                  </Tag>
-                  <h3 className="font-heading font-black text-3xl mt-3">
-                    {post.data.title}
-                  </h3>
-                  <p className="text-lg text-zinc-400 mt-6">
-                    {post.data.description}
-                  </p>
-                </Card>
+                <a href={`/blog/${post.slug}`}>
+                  <Card
+                    key={index}
+                    color={getPostColorFromCategory(post.data.category)}
+                    buttonText="Read More"
+                  >
+                    <Tag color={getPostColorFromCategory(post.data.category)}>
+                      {post.data.category}
+                    </Tag>
+                    <h3 className="font-heading font-black text-3xl mt-3">
+                      {post.data.title}
+                    </h3>
+                    <p className="text-lg text-zinc-400 mt-6">
+                      {post.data.description}
+                    </p>
+                  </Card>
+                </a>
               ))}
           </div>
           <motion.div
@@ -63,21 +65,23 @@ function LatestPosts({
             {latestPosts
               .filter((_, index) => index % 2 === 1)
               .map((post, index) => (
-                <Card
-                  key={index}
-                  color={getPostColorFromCategory(post.data.category)}
-                  buttonText="Read More"
-                >
-                  <Tag color={getPostColorFromCategory(post.data.category)}>
-                    {post.data.category}
-                  </Tag>
-                  <h3 className="font-heading font-black text-3xl mt-3">
-                    {post.data.title}
-                  </h3>
-                  <p className="text-lg text-zinc-400 mt-6">
-                    {post.data.description}
-                  </p>
-                </Card>
+                <a href={`/blog/${post.slug}`}>
+                  <Card
+                    key={index}
+                    color={getPostColorFromCategory(post.data.category)}
+                    buttonText="Read More"
+                  >
+                    <Tag color={getPostColorFromCategory(post.data.category)}>
+                      {post.data.category}
+                    </Tag>
+                    <h3 className="font-heading font-black text-3xl mt-3">
+                      {post.data.title}
+                    </h3>
+                    <p className="text-lg text-zinc-400 mt-6">
+                      {post.data.description}
+                    </p>
+                  </Card>
+                </a>
               ))}
           </motion.div>
         </div>
