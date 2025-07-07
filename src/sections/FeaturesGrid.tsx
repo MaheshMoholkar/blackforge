@@ -1,5 +1,7 @@
+import { useEffect, useRef } from "react";
 import Button from "../components/button";
 import TextButton from "../components/text-button";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const listItems = [
   "Experience unparalled security and scalability",
@@ -8,6 +10,64 @@ const listItems = [
 ];
 
 function FeaturesGrid() {
+  const torusKnotRef = useRef<HTMLImageElement>(null);
+  const firstHemisphereRef = useRef<HTMLImageElement>(null);
+  const secondHemisphereRef = useRef<HTMLImageElement>(null);
+  const coneRef = useRef<HTMLImageElement>(null);
+
+  const { scrollYProgress: torusKnotScrollYProgress } = useScroll({
+    target: torusKnotRef,
+    offset: ["start end", "end start"],
+  });
+  const { scrollYProgress: firstHemisphereScrollYProgress } = useScroll({
+    target: firstHemisphereRef,
+    offset: ["start end", "end start"],
+  });
+  const { scrollYProgress: secondHemisphereScrollYProgress } = useScroll({
+    target: secondHemisphereRef,
+    offset: ["start end", "end start"],
+  });
+  const { scrollYProgress: coneScrollYProgress } = useScroll({
+    target: coneRef,
+    offset: ["start end", "end start"],
+  });
+
+  const torusKnotTranslateY = useTransform(
+    torusKnotScrollYProgress,
+    [0, 1],
+    [100, -100]
+  );
+  const torusKnotRotate = useTransform(
+    torusKnotScrollYProgress,
+    [0, 1],
+    [30, -30]
+  );
+
+  const firstHemisphereTranslateY = useTransform(
+    firstHemisphereScrollYProgress,
+    [0, 1],
+    [50, -50]
+  );
+  const firstHemisphereRotate = useTransform(
+    firstHemisphereScrollYProgress,
+    [0, 1],
+    [-20, -50]
+  );
+
+  const secondHemisphereTranslateY = useTransform(
+    secondHemisphereScrollYProgress,
+    [0, 1],
+    [50, -50]
+  );
+  const secondHemisphereRotate = useTransform(
+    secondHemisphereScrollYProgress,
+    [0, 1],
+    [-20, 10]
+  );
+
+  const coneTranslateY = useTransform(coneScrollYProgress, [0, 1], [50, -50]);
+  const coneRotate = useTransform(coneScrollYProgress, [0, 1], [12, 45]);
+
   return (
     <section className="py-24 md:py-52 overflow-x-clip">
       <div className="container">
@@ -38,15 +98,25 @@ function FeaturesGrid() {
             </div>
             <div className="hidden md:block">
               <div className="relative inline-flex lg:right-[-50px]">
-                <img
+                <motion.img
+                  ref={torusKnotRef}
                   src="/assets/images/torus-knot.png"
                   alt="Torus Knot"
                   className="size-96 max-w-none z-0"
+                  style={{
+                    translateY: torusKnotTranslateY,
+                    rotate: torusKnotRotate,
+                  }}
                 />
-                <img
+                <motion.img
+                  ref={firstHemisphereRef}
                   src="/assets/images/hemisphere.png"
                   alt="Hemisphere"
                   className="absolute size-96 top-3/4 -z-10 scale-x-[-1]"
+                  style={{
+                    translateY: firstHemisphereTranslateY,
+                    rotate: firstHemisphereRotate,
+                  }}
                 />
               </div>
             </div>
@@ -54,15 +124,25 @@ function FeaturesGrid() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative hidden md:block">
               <div className="absolute right-0 z-0 lg:right-[50px]">
-                <img
+                <motion.img
+                  ref={coneRef}
                   src="/assets/images/cone.png"
                   alt="Cone"
                   className="size-96 max-w-none rotate-12"
+                  style={{
+                    translateY: coneTranslateY,
+                    rotate: coneRotate,
+                  }}
                 />
-                <img
+                <motion.img
+                  ref={secondHemisphereRef}
                   src="/assets/images/hemisphere.png"
                   alt="Hemisphere"
                   className="absolute size-96 top-3/4 -z-10"
+                  style={{
+                    translateY: secondHemisphereTranslateY,
+                    rotate: secondHemisphereRotate,
+                  }}
                 />
               </div>
             </div>

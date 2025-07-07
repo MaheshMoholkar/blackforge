@@ -21,12 +21,12 @@ const latestPosts = posts
 ---
 
 <DefaultLayout>
-  <HeaderSection />
-  <HeroSection />
-  <FeatureSection />
-  <FeaturesGrid />
-  <LatestPosts latestPosts={latestPosts} />
-  <TestimonialsSection />
-  <CallToAction />
+  <HeaderSection client:load />
+  <HeroSection client:load />
+  <FeatureSection client:load />
+  <FeaturesGrid client:load />
+  <LatestPosts latestPosts={latestPosts} client:load />
+  <TestimonialsSection client:load />
+  <CallToAction client:load />
   <Footer />
 </DefaultLayout>

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const testimonials = [
   {
     quote:
@@ -46,7 +48,26 @@ function TestimonialsSection() {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12">
           {testimonials.map((testimonial, index) => (
-            <blockquote key={index} className="flex flex-col justify-between">
+            <motion.blockquote
+              key={index}
+              initial={{
+                opacity: 0,
+                y: 24,
+              }}
+              viewport={{
+                once: true,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: index * 0.5,
+                ease: "easeInOut",
+                duration: 1,
+              }}
+              className="flex flex-col justify-between"
+            >
               <p className="font-heading font-black text-3xl md:text-4xl">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
@@ -72,7 +93,7 @@ function TestimonialsSection() {
                   </div>
                 </div>
               </cite>
-            </blockquote>
+            </motion.blockquote>
           ))}
         </div>
       </div>

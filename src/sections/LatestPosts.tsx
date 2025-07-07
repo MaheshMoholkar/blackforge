@@ -3,12 +3,22 @@ import Card from "../components/card";
 import { getPostColorFromCategory } from "../utils/postUtils";
 import Tag from "../components/tag";
 import Button from "../components/button";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 function LatestPosts({
   latestPosts,
 }: {
   latestPosts: CollectionEntry<"blog">[];
 }) {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "start center"],
+  });
+
+  const marginTop = useTransform(scrollYProgress, [0, 1], [0, 64]);
+
   return (
     <section className="py-24 md:py-52 overflow-x-clip">
       <div className="container">
@@ -43,7 +53,13 @@ function LatestPosts({
                 </Card>
               ))}
           </div>
-          <div className="flex flex-col gap-8 mt-16">
+          <motion.div
+            className="flex flex-col gap-8 mt-16"
+            ref={targetRef}
+            style={{
+              marginTop,
+            }}
+          >
             {latestPosts
               .filter((_, index) => index % 2 === 1)
               .map((post, index) => (
@@ -63,7 +79,7 @@ function LatestPosts({
                   </p>
                 </Card>
               ))}
-          </div>
+          </motion.div>
         </div>
         <div className="mt-32 flex justify-center">
           <Button>Read the Blog</Button>
