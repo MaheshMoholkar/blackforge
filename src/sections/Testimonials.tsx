@@ -43,7 +43,7 @@ function TestimonialsSection() {
                 y: 0,
               }}
               transition={{
-                delay: index * 0.5,
+                delay: index * 0.1,
                 ease: "easeInOut",
                 duration: 1,
               }}
