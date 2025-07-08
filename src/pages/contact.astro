@@ -1,0 +1,44 @@
+---
+import DefaultLayout from "../layouts/Default.astro";
+import Hero from "../components/hero.astro";
+import Content from "../components/blog-content.astro";
+import Input from "../components/input.astro";
+import Button from "../components/button";
+---
+
+<DefaultLayout>
+  <Hero>
+    <p
+      class="uppercase font-extrabold text-center text-zinc-500 tracking-wider"
+    >
+      Let's talk
+    </p>
+    <h1
+      class="font-heading font-black text-5xl md:text-6xl lg:text-7xl text-center mt-4"
+    >
+      Contact us
+    </h1>
+    <p
+      class="text-center text-xl md:text-2xl mt-6 max-w-xl mx-auto text-zinc-400"
+    >
+      We're here to help and answer any questions you may have. Reach out to us
+      to learn more about our services, get support, or to apply for positions.
+    </p>
+  </Hero>
+  <Content>
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl font-black font-heading">
+        What can we help you with?
+      </h2>
+      <div class="mt-8">
+        <label for="name">Name</label>
+        <Input type="text" id="name" name="name" />
+        <label for="email">Email</label>
+        <Input type="email" id="email" name="email" />
+        <label for="message">Message</label>
+        <Input type="textarea" id="message" name="message" />
+        <Button type="submit" className="mt-4 w-full">Send Message</Button>
+      </div>
+    </div>
+  </Content>
+</DefaultLayout>
